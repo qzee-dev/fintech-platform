@@ -1,0 +1,22 @@
+{
+  "name": "fintech-shared-libs",
+  "version": "1.0.0",
+  "description": "Shared libraries and utilities for fintech platform services",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "logger",
+    "kafka",
+    "middleware",
+    "shared"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "kafkajs": "^2.2.4",
+    "winston": "^3.11.0",
+    "jsonwebtoken": "^9.1.2"
+  }
+}

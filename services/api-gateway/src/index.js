@@ -2,9 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const proxy = require('express-http-proxy');
 const cors = require('cors');
-const { createLogger } = require('./utils/logger');
-const { authMiddleware } = require('./middleware/auth');
-const { rateLimitMiddleware } = require('./middleware/rateLimit');
+const { createLogger, authMiddleware, rateLimitMiddleware } = require('fintech-shared-libs');
 
 const app = express();
 const logger = createLogger('API-Gateway');

@@ -1,11 +1,10 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const { createLogger } = require('./utils/logger');
+const { createLogger, errorHandler } = require('fintech-shared-libs');
 const { sequelize } = require('./models');
 const authRoutes = require('./routes/auth');
 const profileRoutes = require('./routes/profile');
-const { errorHandler } = require('./middleware/errorHandler');
 require('express-async-errors');
 
 const app = express();

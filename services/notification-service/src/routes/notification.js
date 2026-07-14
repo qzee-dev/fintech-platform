@@ -1,7 +1,7 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
 const twilio = require('twilio');
-const { createLogger } = require('../utils/logger');
+const { createLogger } = require('fintech-shared-libs');
 
 const router = express.Router();
 const logger = createLogger('Notification-Routes');

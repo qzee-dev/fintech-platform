@@ -9,9 +9,10 @@ const Wallets = () => {
   const [loading, setLoading] = useState(true);
   const [accountType, setAccountType] = useState('SAVINGS');
 
+  // ✅ Added fetchWallets to dependency array
   useEffect(() => {
     fetchWallets();
-  }, []);
+  }, [fetchWallets]);
 
   const fetchWallets = async () => {
     try {

@@ -11,9 +11,10 @@ const Transactions = () => {
   const [wallets, setWallets] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // ✅ Added fetchWallets to dependency array to satisfy ESLint
   useEffect(() => {
     fetchWallets();
-  }, []);
+  }, [fetchWallets]);
 
   const fetchWallets = async () => {
     try {

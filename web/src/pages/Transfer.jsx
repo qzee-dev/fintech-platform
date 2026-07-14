@@ -17,9 +17,10 @@ const Transfer = () => {
     description: '',
   });
 
+  // ✅ Added fetchWallets to dependency array
   useEffect(() => {
     fetchWallets();
-  }, []);
+  }, [fetchWallets]);
 
   const fetchWallets = async () => {
     try {
@@ -51,7 +52,8 @@ const Transfer = () => {
     setLoading(true);
 
     try {
-      const response = await transactionService.createTransaction({
+      // ❌ Removed unused variable assignment
+      await transactionService.createTransaction({
         ...formData,
         idempotencyKey: uuidv4(),
       });

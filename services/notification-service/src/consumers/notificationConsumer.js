@@ -1,4 +1,4 @@
-const { createLogger } = require('../utils/logger');
+const { createLogger } = require('fintech-shared-libs');
 
 const logger = createLogger('Notification-Consumer');
 

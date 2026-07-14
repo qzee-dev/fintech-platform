@@ -1,7 +1,7 @@
 const express = require('express');
 const { v4: uuidv4 } = require('uuid');
 const { FraudAlert } = require('../models');
-const { createLogger } = require('../utils/logger');
+const { createLogger } = require('fintech-shared-libs');
 
 const router = express.Router();
 const logger = createLogger('Fraud-Routes');

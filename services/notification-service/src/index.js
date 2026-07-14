@@ -1,10 +1,8 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const { createLogger } = require('./utils/logger');
+const { createLogger, KafkaService, errorHandler } = require('fintech-shared-libs');
 const notificationRoutes = require('./routes/notification');
-const { errorHandler } = require('./middleware/errorHandler');
-const { KafkaService } = require('./services/kafka');
 const { startNotificationConsumer } = require('./consumers/notificationConsumer');
 
 const app = express();
@@ -24,7 +22,7 @@ const PORT = process.env.PORT || 3006;
 
 const startServer = async () => {
   try {
-    const kafkaService = new KafkaService();
+    const kafkaService = new KafkaService('notification-service', 'notification-service-group');
     await kafkaService.connect();
     logger.info('Kafka connected');
 

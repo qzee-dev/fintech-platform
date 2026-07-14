@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthStore } from '../store/authStore';
 import { walletService } from '../services/walletService';
-import { transactionService } from '../services/transactionService';
+// ❌ Removed transactionService import since it was unused
 
 const Dashboard = () => {
   const { user } = useAuthStore();
   const [wallets, setWallets] = useState([]);
   const [totalBalance, setTotalBalance] = useState(0);
-  const [recentTransactions, setRecentTransactions] = useState([]);
+  const [recentTransactions, setRecentTransactions] = useState([]); 
+  // ✅ This is used in JSX, so keep it
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

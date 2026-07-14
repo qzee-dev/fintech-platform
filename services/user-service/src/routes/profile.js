@@ -1,7 +1,7 @@
 const express = require('express');
 const { User } = require('../models');
 const { authenticate } = require('../middleware/auth');
-const { createLogger } = require('../utils/logger');
+const { createLogger } = require('fintech-shared-libs');
 
 const router = express.Router();
 const logger = createLogger('Profile-Routes');

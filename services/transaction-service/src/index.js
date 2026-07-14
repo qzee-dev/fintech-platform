@@ -1,11 +1,9 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const { createLogger } = require('./utils/logger');
+const { createLogger, KafkaService, errorHandler } = require('fintech-shared-libs');
 const { sequelize } = require('./models');
 const transactionRoutes = require('./routes/transaction');
-const { errorHandler } = require('./middleware/errorHandler');
-const { KafkaService } = require('./services/kafka');
 const { startTransactionConsumer } = require('./consumers/transactionConsumer');
 
 const app = express();
@@ -29,7 +27,7 @@ const startServer = async () => {
     logger.info('Database connected');
     await sequelize.sync({ alter: false });
 
-    const kafkaService = new KafkaService();
+    const kafkaService = new KafkaService('transaction-service', 'transaction-service-group');
     await kafkaService.connect();
     logger.info('Kafka connected');
 

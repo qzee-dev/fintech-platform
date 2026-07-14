@@ -2,12 +2,11 @@ const express = require('express');
 const { v4: uuidv4 } = require('uuid');
 const Joi = require('joi');
 const { Transaction } = require('../models');
-const { createLogger } = require('../utils/logger');
-const { KafkaService } = require('../services/kafka');
+const { createLogger, KafkaService } = require('fintech-shared-libs');
 
 const router = express.Router();
 const logger = createLogger('Transaction-Routes');
-const kafkaService = new KafkaService();
+const kafkaService = new KafkaService('transaction-service', 'transaction-service-group');
 
 const transactionSchema = Joi.object({
   sourceWalletId: Joi.string().uuid().required(),

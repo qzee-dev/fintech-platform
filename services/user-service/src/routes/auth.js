@@ -2,7 +2,7 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 const Joi = require('joi');
 const { User } = require('../models');
-const { createLogger } = require('../utils/logger');
+const { createLogger } = require('fintech-shared-libs');
 
 const router = express.Router();
 const logger = createLogger('Auth-Routes');
