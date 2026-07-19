@@ -185,7 +185,7 @@ but also:
 @nx/jest            19.8.4   ❌
 @nx/linter          19.8.4   ❌
 
-Those packages are almost four major versions behind your Nx version
+T
 -----------------------------------------
 ## Connecting Workspace to Nx Cloud
 -------------------------------------------
