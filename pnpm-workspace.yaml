@@ -1,0 +1,9 @@
+packages:
+  - services/*
+  - libs/*
+allowBuilds:
+  '@swc/core': false
+  core-js: false
+  core-js-pure: false
+  nx: false
+  unrs-resolver: false

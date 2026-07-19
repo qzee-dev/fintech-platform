@@ -17,6 +17,6 @@
   "dependencies": {
     "kafkajs": "^2.2.4",
     "winston": "^3.11.0",
-    "jsonwebtoken": "^9.1.2"
+    "jsonwebtoken": "^9.0.3"
   }
 }

@@ -16,3 +16,12 @@ yarn-error.log*
 .env
 .env.development
 .env.production
+
+
+
+.nx/cache
+.nx/workspace-data
+.nx/migrate-runs
+vite.config.*.timestamp*
+vitest.config.*.timestamp*
+test-output

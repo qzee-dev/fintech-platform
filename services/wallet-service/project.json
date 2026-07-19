@@ -1,0 +1,44 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "wallet-service",
+  "sourceRoot": "services/wallet-service/src",
+  "projectType": "application",
+  "targets": {
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node src/index.js",
+        "cwd": "services/wallet-service"
+      }
+    },
+    "dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "nodemon src/index.js",
+        "cwd": "services/wallet-service"
+      }
+    },
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "echo \"No build step required\""
+      }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "cache":true,
+      "options": {
+        "command": "eslint src",
+        "cwd": "services/wallet-service"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "cache": true,
+      "options": {
+        "command": "jest",
+        "cwd": "services/wallet-service"
+      }
+    }
+  }
+}

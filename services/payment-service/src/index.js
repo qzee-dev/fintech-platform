@@ -21,21 +21,28 @@ app.use(errorHandler);
 const PORT = process.env.PORT || 3004;
 
 const startServer = async () => {
+  // Start the API immediately
+  app.listen(PORT, () => {
+    logger.info(`Payment Service running on port ${PORT}`);
+  });
+
+  // Initialize PostgreSQL
   try {
     await sequelize.authenticate();
     logger.info('Database connected');
-    await sequelize.sync({ alter: false });
 
+    await sequelize.sync({ alter: false });
+  } catch (error) {
+    logger.error('Database unavailable:', error.message);
+  }
+
+  // Initialize Kafka
+  try {
     const kafkaService = new KafkaService('payment-service');
     await kafkaService.connect();
     logger.info('Kafka connected');
-
-    app.listen(PORT, () => {
-      logger.info(`Payment Service running on port ${PORT}`);
-    });
   } catch (error) {
-    logger.error('Failed to start server:', error);
-    process.exit(1);
+    logger.error('Kafka unavailable:', error.message);
   }
 };
 

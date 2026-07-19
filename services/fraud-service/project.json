@@ -1,0 +1,44 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "fraud-service",
+  "sourceRoot": "services/fraud-service/src",
+  "projectType": "application",
+  "targets": {
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node src/index.js",
+        "cwd": "services/fraud-service"
+      }
+    },
+    "dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "nodemon src/index.js",
+        "cwd": "services/fraud-service"
+      }
+    },
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "echo \"No build step required\""
+      }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "cache":true,
+      "options": {
+        "command": "eslint src",
+        "cwd": "services/fraud-service"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "cache": true,
+      "options": {
+        "command": "jest",
+        "cwd": "services/fraud-service"
+      }
+    }
+  }
+}
